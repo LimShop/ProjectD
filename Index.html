@@ -1,8 +1,8 @@
-<html>
-    <head>
-        <title>Welcom First Test</title>
-    </head>
-    <Body>
-        <h2>Hello! Again!!!</h2>
-    </Body> 
-</html>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    var socket = io.connect('http://192.168.0.123:8000');
+    socket.on('news', function (data) {
+        console.log(data);
+        socket.emit('my other event', { my: 'data' });
+    });
+</script>
